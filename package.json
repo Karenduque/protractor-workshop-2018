@@ -7,6 +7,7 @@
     "test": "test"
   },
   "dependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.4.2"
   },
   "devDependencies": {
@@ -14,7 +15,7 @@
     "typescript": "^3.2.2"
   },
   "scripts": {
-	  "clean": "rm -rf dist",
+    "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
     "test": "npm run build && protractor dist/protractor/local.config.js"
   },
