@@ -7,16 +7,20 @@
     "test": "test"
   },
   "dependencies": {
+    "jasmine-spec-reporter": "^4.2.1",
     "protractor": "^5.4.2"
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.6",
+    "@types/node": "^10.12.18",
     "typescript": "^3.2.2"
   },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
-    "test": "npm run build && protractor dist/protractor/local.config.js"
+    "test:local" : "npm run build && protractor dist/protractor/local.config.js",
+    "test:headless" : "npm run build && protractor dist/protractor/headless.config.js"
+
   },
   "repository": {
     "type": "git",
