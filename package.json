@@ -13,14 +13,18 @@
   "devDependencies": {
     "@types/jasminewd2": "^2.0.6",
     "@types/node": "^10.12.18",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.2.2"
   },
   "scripts": {
+    "postinstall": "webdriver-manager update --gecko false",
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc",
-    "test:local" : "npm run build && protractor dist/protractor/local.config.js",
-    "test:headless" : "npm run build && protractor dist/protractor/headless.config.js"
-
+    "build": "npm run lint && tsc",
+    "lint": "tslint --project tsconfig.json protractor/**/*.ts test/**/*.ts src/**/*.ts",
+    "test:local": "npm run build && protractor dist/protractor/local.config.js",
+    "test:headless": "npm run build && protractor dist/protractor/headless.config.js",
+    "test": "npm run test:headless"
   },
   "repository": {
     "type": "git",
